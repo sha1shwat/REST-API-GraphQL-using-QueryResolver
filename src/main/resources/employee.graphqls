@@ -1,0 +1,34 @@
+directive @deprecate(
+    reason: String = "No longer supported"
+) on FIELD_DEFINITION | ENUM_VALUE
+
+type Employee{
+    # This is employeeId
+    employeeId : Int
+    name : String @deprecated (reason: "Use `personSurname`")
+    designation : String
+    user : Users
+}
+
+type Users {
+
+    id : Int
+    first_name:String
+    last_name:String
+    employee : Employee
+}
+
+type Query{
+
+    allEmployees : [Employee]
+    allEmployeesWithFilter(filter : String): [Employee]
+    countEmployees : Float
+    getEmployee(employeeId : Int):Employee
+
+}
+
+
+type Mutation{
+
+    newEmployee(name:String!,designation : String): Employee
+}
