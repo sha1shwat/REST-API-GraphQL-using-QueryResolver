@@ -1,1 +1,1 @@
-# REST-API-GraphQL-using-QueryResolver
+# REST-API-AND-GraphQL-using-QueryResolver
